@@ -1,0 +1,82 @@
+{
+    "update_url": "https://clients2.google.com/service/update2/crx",
+    "name": "Advanced Steam Blocker",
+    "version": "1.0",
+    "description": "Gives users advanced options for blocking.",
+    "icons": {
+        "128": "img/steamblock.png"
+    },
+    "manifest_version": 1,
+    "options_ui": {
+        "page": "options.html",
+        "open_in_tab": true
+    },
+    "permissions": [
+        "storage",
+        "http://*.steampowered.com/"
+    ],
+
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*.steampowered.com/*",
+                "https://*.steampowered.com/*",
+                "http://steamcommunity.com/*",
+                "https://steamcommunity.com/*"
+            ],
+            "exclude_matches": [
+                "*://store.steampowered.com/dynamicstore/*",
+                "*://store.steampowered.com/checkout/*",
+                "*://store.steampowered.com/widget/*",
+                "*://store.steampowered.com/login/*",
+                "*://store.steampowered.com/api/*",
+                "*://steamcommunity.com/login/*"
+            ],
+            "js": [
+                "steamblock.js"
+            ],
+            "css": [
+                "css/steamblock.css"
+            ]
+        },
+        {
+            "matches": [
+                "http://*.steampowered.com/app/*",
+                "http://*.steampowered.com/sub/*",
+                "http://*.steampowered.com/sale/*",
+                "http://*.steampowered.com/"
+            ],
+            "css": [
+                "css/es_flags.css"
+            ]
+        },
+        {
+            "matches": [
+                "https://steamcommunity.com/tradeoffer/*"
+            ],
+            "js": [
+                "js/steamcommunity.com/tradeoffer.js"
+            ],
+            "css": [
+                "css/steamcommunity.com/tradeoffer.css"
+            ]
+        },
+        {
+            "matches": [
+                "*://steamcommunity.com/id/*",
+                "*://steamcommunity.com/profiles/*"
+            ],
+            "css": [
+                "css/es_sites_links.css"
+            ]
+        },
+        {
+            "matches": [
+                "*://store.steampowered.com/"
+            ],
+            "css": [
+                "css/store.steampowered.com/store_front.css"
+            ]
+        }
+    ]
+}
