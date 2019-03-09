@@ -13,7 +13,8 @@
     },
     "permissions": [
         "storage",
-        "http://*.steampowered.com/"
+        "http://*.steampowered.com/",
+        "https://steamcommunity.com/id/*/friends/pending"
     ],
 
     "content_scripts": [
